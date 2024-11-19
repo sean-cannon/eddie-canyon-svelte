@@ -16,11 +16,10 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: '200.html'
+			fallback: '200.html', // Ensure SPA fallback for deep links
 		}),
 		paths: {
-			base: '/eddie-canyon-svelte', // Replace with your GitHub repository name
-			assets: '/eddie-canyon-svelte'
+			base: '/eddie-canyon-svelte', // Corrected base path for your GitHub repository
 		},
 		prerender: {
 			entries: ['*'], // Prerender all routes
