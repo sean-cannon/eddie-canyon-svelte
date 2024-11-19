@@ -37,7 +37,7 @@
                 href="/think"
                 class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
             >
-                Think
+                Think...
             </a>
         </div>
     </div>
