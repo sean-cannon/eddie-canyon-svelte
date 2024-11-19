@@ -21,6 +21,9 @@ const config = {
 		paths: {
 			base: '/eddie-canyon-svlete', // Replace with your GitHub repository name
 		},
+		prerender: {
+			entries: ['*'], // Prerender all routes
+		},
 	},
 };
 

@@ -1,4 +1,6 @@
 <script>
+    export const prerender = true;
+
     // Define social media platforms with their respective details
     const socials = [
       {

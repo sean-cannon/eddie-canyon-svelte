@@ -1,5 +1,5 @@
 <script>
-    // Future blog logic
+    export const prerender = true;
 </script>
 
 <h1>Think</h1>

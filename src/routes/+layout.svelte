@@ -1,4 +1,6 @@
 <script lang="ts">
+	export const prerender = true;
+
 	import { page } from '$app/stores';
   
 	import '../app.postcss';

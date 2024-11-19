@@ -1,3 +1,7 @@
+<script>
+  export const prerender = true;
+</script>
+
 <div class="container mx-auto px-4 py-6 space-y-8">
     <!-- Page Header -->
     <header class="text-center">
