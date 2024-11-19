@@ -1,75 +1,48 @@
 <script>
-    // Add any interactivity logic here, if needed
+    // Get the current year dynamically
+    const currentYear = new Date().getFullYear();
 </script>
 
-<!-- <style>
-    /* Add your CSS directly or import Tailwind classes */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #000;
-        color: #fff;
-    }
+<div class="relative h-screen bg-black">
+    <!-- Background Header Image -->
+    <img
+        src="/path-to-your-header-image.jpg" 
+        alt="Eddie Canyon Header" 
+        class="absolute inset-0 object-cover w-full h-full"
+    />
 
-    .hero {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        padding: 0 1rem;
-    }
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
-    .hero h1 {
-        font-size: 4rem;
-        color: #ffcc00;
-    }
-
-    .hero h2 {
-        font-size: 1.5rem;
-        font-weight: 300;
-        margin-top: 1rem;
-    }
-
-    .hero .cta a {
-        margin: 1rem 0;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        font-weight: bold;
-        color: #000;
-        background-color: #ffcc00;
-        border-radius: 30px;
-        text-decoration: none;
-        transition: transform 0.2s, background-color 0.2s;
-    }
-
-    .hero .cta a:hover {
-        background-color: #e6b800;
-        transform: scale(1.05);
-    }
-
-    footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #111;
-    }
-
-    footer a {
-        color: #ffcc00;
-        text-decoration: none;
-    }
-</style> -->
-
-<div class="hero">
-    <h1>Eddie Canyon</h1>
-    <h2><span>Not</span> for the surface dwellers</h2>
-    <div class="cta"><a href="/listen">Listen</a></div>
-    <div class="cta"><a href="/watch">Watch</a></div>
-    <div class="cta"><a href="/think">Think</a></div>
+    <!-- Hero Content -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white space-y-6 px-4">
+        <h1 class="text-5xl font-bold text-primary-100">Eddie Canyon</h1>
+        <h2 class="text-xl font-light">
+            <span class="text-primary-200 font-semibold">Not</span> for the surface dwellers
+        </h2>
+        <div class="flex space-x-4 mt-6">
+            <a
+                href="/listen"
+                class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
+            >
+                Listen
+            </a>
+            <a
+                href="/watch"
+                class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
+            >
+                Watch
+            </a>
+            <a
+                href="/think"
+                class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
+            >
+                Think
+            </a>
+        </div>
+    </div>
 </div>
 
-<footer>
-    © 2024 Eddie Canyon. Built with passion. Follow me on <a href="/socials">Socials</a>.
+<footer class="bg-primary-900 text-center text-white py-4">
+    © {currentYear} Eddie Canyon. Built with passion. Follow me on <a href="/socials" class="text-primary-200 hover:underline">Socials</a>.
 </footer>
