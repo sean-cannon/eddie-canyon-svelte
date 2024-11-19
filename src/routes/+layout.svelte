@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+  
 	import '../app.postcss';
 
 	// Highlight JS
@@ -15,11 +17,51 @@
 	hljs.registerLanguage('javascript', javascript);
 	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
-
-	// Floating UI for Popups
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { storePopup } from '@skeletonlabs/skeleton';
-	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-</script>
-
-<slot />
+	
+	// Reactive declaration to track the current URL
+	$: currentPath = $page.url.pathname;
+  
+	// Define navigation links
+	interface NavLink {
+	  href: string;
+	  label: string;
+	}
+  
+	const links: NavLink[] = [
+	  { href: '/', label: 'Home' },
+	  { href: '/listen', label: 'Listen' },
+	  { href: '/watch', label: 'Watch' },
+	  { href: '/think', label: 'Think' },
+	  { href: '/socials', label: 'Socials' },
+	];
+  </script>
+  
+  <style>
+	nav {
+	  background-color: var(--bg-primary, #f8f9fa); /* Skeleton-compatible fallback */
+	}
+  </style>
+  
+  <!-- Navbar -->
+  <nav class="shadow-md sticky top-0 z-10 p-4 bg-primary-50 flex justify-between items-center">
+	<a href="/" class="text-2xl font-bold text-primary-900">Eddie Canyon</a>
+	<ul class="flex space-x-4">
+	  {#each links as { href, label }}
+		<li>
+		  <a
+			href={href}
+			class="text-lg font-medium px-4 py-2 rounded-md transition-colors duration-200
+			  {currentPath === href ? 'bg-primary-100 text-primary-900' : 'hover:bg-primary-100 text-primary-700'}"
+		  >
+			{label}
+		  </a>
+		</li>
+	  {/each}
+	</ul>
+  </nav>
+  
+  <!-- Content -->
+  <main class="p-6">
+	<slot />
+  </main>
+  
