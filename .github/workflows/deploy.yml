@@ -25,9 +25,8 @@ jobs:
       - name: Build the project
         run: npm run build
 
-        - name: Copy 200.html to index.html
-  run: cp build/200.html build/index.html
-
+      - name: Copy 200.html to index.html
+        run: cp build/200.html build/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
