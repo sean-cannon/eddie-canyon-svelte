@@ -20,6 +20,7 @@ const config = {
 		}),
 		paths: {
 			base: '/eddie-canyon-svelte', // Replace with your GitHub repository name
+			assets: '/eddie-canyon-svelte'
 		},
 		prerender: {
 			entries: ['*'], // Prerender all routes
