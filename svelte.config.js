@@ -16,7 +16,7 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html'
+			fallback: '200.html'
 		}),
 		paths: {
 			base: '/eddie-canyon-svlete', // Replace with your GitHub repository name
