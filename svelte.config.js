@@ -19,7 +19,7 @@ const config = {
 			fallback: '200.html'
 		}),
 		paths: {
-			base: '/eddie-canyon-svlete', // Replace with your GitHub repository name
+			base: '/eddie-canyon-svelte', // Replace with your GitHub repository name
 		},
 		prerender: {
 			entries: ['*'], // Prerender all routes
