@@ -10,27 +10,54 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      # Set up Node.js environment
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
 
+      # Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Increment SemVer
+      - name: Increment version
+        id: semver
+        run: |
+          # Check if VERSION file exists
+          if [ ! -f VERSION ]; then
+            echo "0.0.0" > VERSION
+          fi
+          # Read the current version
+          current_version=$(cat VERSION)
+          # Increment the version (patch level)
+          new_version=$(echo $current_version | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
+          echo $new_version > VERSION
+          echo "version=$new_version" >> $GITHUB_ENV
+
+      # Commit the updated version
+      - name: Commit updated version
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add VERSION
+          git commit -m "Increment version to ${{ env.version }}"
+          git push
+
+      # Build the project
       - name: Build the project
         run: npm run build
 
-      - name: Copy 200.html to index.html
-        run: cp build/200.html build/index.html
-
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build
-          clean: true # Ensures the gh-pages branch is cleared before deployment
+          # Add the version to the commit message
+          commit_message: 'Deploy version ${{ env.version }}'
