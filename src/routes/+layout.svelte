@@ -2,6 +2,7 @@
 	export const prerender = true;
 
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
   
 	import '../app.postcss';
 
@@ -30,11 +31,11 @@
 	}
   
 	const links: NavLink[] = [
-	  { href: '/', label: 'Home' },
-	  { href: '/listen', label: 'Listen' },
-	  { href: '/watch', label: 'Watch' },
-	  { href: '/think', label: 'Think' },
-	  { href: '/socials', label: 'Socials' },
+		{ href: `${base}/`, label: 'Home' },
+		{ href: `${base}/listen`, label: 'Listen' },
+		{ href: `${base}/watch`, label: 'Watch' },
+		{ href: `${base}/think`, label: 'Think' },
+		{ href: `${base}/socials`, label: 'Socials' },
 	];
   </script>
   
