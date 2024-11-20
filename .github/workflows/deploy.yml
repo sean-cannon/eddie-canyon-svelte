@@ -10,22 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Node.js environment
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
 
-      # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run:
+          npm install
 
-      # Increment SemVer
+          # Increment SemVer
       - name: Increment version
         id: semver
         run: |
@@ -49,15 +47,15 @@ jobs:
           git commit -m "Increment version to ${{ env.version }}"
           git push
 
-      # Build the project
       - name: Build the project
         run: npm run build
 
-      # Deploy to GitHub Pages
+      - name: Copy 200.html to index.html
+        run: cp build/200.html build/index.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build
-          # Add the version to the commit message
-          commit_message: 'Deploy version ${{ env.version }}'
+          clean: true # Ensures the gh-pages branch is cleared before deployment

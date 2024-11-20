@@ -7,3 +7,4 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+declare const __APP_VERSION__: string;
