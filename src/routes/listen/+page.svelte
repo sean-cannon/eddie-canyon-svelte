@@ -1,5 +1,7 @@
 <script lang="ts">
   export const prerender = true;
+  const currentYear = new Date().getFullYear();
+  export const appVersion = __APP_VERSION__;
 </script>
 
 <div class="container mx-auto px-4 py-6 space-y-8">
