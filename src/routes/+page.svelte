@@ -20,7 +20,7 @@
     <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white space-y-6 px-4">
         <h1 class="text-5xl font-bold text-primary-100">Eddie Canyon</h1>
         <h2 class="text-xl font-light">
-            <span class="text-primary-200 font-semibold">Not</span> for the surface dwellers
+            <span class="text-primary-200 font-semibold">Not</span> for the surface dwellers.
         </h2>
         <div class="flex space-x-4 mt-6">
             <a
