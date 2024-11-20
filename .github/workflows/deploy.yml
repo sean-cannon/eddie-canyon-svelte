@@ -53,8 +53,17 @@ jobs:
       - name: Copy 200.html to index.html
         run: cp build/200.html build/index.html
 
+      # Ensure GitHub Pages settings
+      - name: Configure GitHub Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/eddie-canyon-svelte/" /></head></html>' > build/index.html
+
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build
+          destination_branch: gh-pages
