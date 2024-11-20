@@ -3,6 +3,8 @@
     const currentYear = new Date().getFullYear();
 
     export const appVersion = __APP_VERSION__;
+
+    import { base } from '$app/paths';
 </script>
 
 <div class="relative h-screen bg-black">
@@ -24,19 +26,19 @@
         </h2>
         <div class="flex space-x-4 mt-6">
             <a
-                href="/listen"
+                href="/${base}/listen"
                 class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
             >
                 Listen
             </a>
             <a
-                href="/watch"
+                href="/${base}/watch"
                 class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
             >
                 Watch
             </a>
             <a
-                href="/think"
+                href="/${base}/think"
                 class="px-6 py-3 bg-primary-700 text-white font-medium text-lg rounded-full shadow-md transition transform hover:bg-primary-600 hover:scale-105"
             >
                 Think...
